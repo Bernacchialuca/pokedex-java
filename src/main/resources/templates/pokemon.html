@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokémon Details</title>
+</head>
+<body>
+<h1 th:text="${pokemon.name}"></h1>
+<p th:text="'ID: ' + ${pokemon.id}"></p>
+<p>Types:
+    <span th:each="type : ${pokemon.types}">
+        <span th:text="${type.type.name}"></span>
+    </span>
+</p>
+<img th:src="${pokemon.sprites.other.dream_world.front_default}" th:alt="${pokemon.name}">
+</body>
+</html>
