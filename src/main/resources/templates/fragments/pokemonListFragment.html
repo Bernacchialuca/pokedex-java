@@ -1,18 +1,5 @@
 <div th:fragment="pokemonListFragment" class="row">
     <div th:each="pokemon : ${pokemones}" class="col-md-4 mb-4">
-        <div class="card h-100 pokemon-card">
-            <div class="col-12 mt-5 text-center">
-                <img class="pokemon-image" th:src="${pokemon.sprites.other.dream_world.front_default}"
-                     th:alt="${pokemon.name}">
-            </div>
-            <div class="col-12 card-body">
-                <h2 class="pokemon-name" th:text="${pokemon.name}"></h2>
-                <div class="m-3">
-                        <span th:each="type : ${pokemon.types}">
-                            <span th:class="${type.type.name}" th:text="${type.type.name}"></span>
-                        </span>
-                </div>
-            </div>
-        </div>
+        <div th:replace="~{fragments/infoPokemon :: infoPokemon}"></div>
     </div>
 </div>

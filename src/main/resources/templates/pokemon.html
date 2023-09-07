@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="fragments/head :: head"></div>
+<div th:replace="~{fragments/head :: head}"></div>
 <body>
 <div class="container text-center">
-    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="~{fragments/header :: header}"></div>
 </div>
 <div class="container mt-5">
-    <div th:replace="fragments/pokemonFragment :: pokemonFragment"></div>
+    <div th:replace="~{fragments/pokemonFragment :: pokemonFragment}"></div>
 </div>
 </body>
 </html>

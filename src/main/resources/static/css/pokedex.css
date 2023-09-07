@@ -24,6 +24,17 @@
 .pokemon-image {
     max-width: 200px;
     height: 200px;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+}
+
+.pokemon-image:hover {
+    transform: scale(1.1);
+}
+
+.pokemon-name-link {
+    color: black;
+    text-decoration: none;
 }
 
 .pokemon-name {
@@ -149,6 +160,7 @@
 }
 
 span {
+    text-transform: capitalize;
     padding: 5px 12px;
     border-radius: 10px;
 }
