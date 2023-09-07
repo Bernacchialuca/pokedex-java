@@ -1,0 +1,12 @@
+<div th:fragment="header">
+<div class="text-center m-5">
+    <img class="pokedex-logo" th:src="@{/image/Pokedex_logo.png}" alt="pokedex-logo">
+</div>
+<form th:method="get" th:action="@{/pokemon}">
+    <div class="form-buscar">
+        <label for="name"></label>
+        <input id="name" name="name" type="text" placeholder="Buscar pokemon">
+        <button type="submit" class="btn btn-warning">Buscar</button>
+    </div>
+</form>
+</div>
