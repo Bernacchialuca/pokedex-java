@@ -1,6 +1,6 @@
 <div th:fragment="infoPokemon" class="card h-100 pokemon-card">
     <div class="col-12 mt-5 text-center">
-        dd
+        <a th:href="@{'/pokemon/ver-detalle/' + ${pokemon.name}}">
             <img class="pokemon-image" th:src="${pokemon.sprites.other.dream_world.front_default}"
                  th:alt="${pokemon.name}">
         </a>
