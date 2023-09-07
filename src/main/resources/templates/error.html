@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pokedex</title>
+    <link rel="stylesheet" th:href="@{/css/pokedex.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Error</h1>
-<p th:text="${error}"></p>
+<div class="container text-center">
+    <div class="text-center m-5">
+        <img class="pokedex-logo" th:src="@{/image/Pokedex_logo.png}" alt="pokedex-logo">
+    </div>
+    <form th:method="get" th:action="@{/pokemon}">
+        <div class="form-buscar">
+            <label for="name"></label>
+            <input id="name" name="name" type="text" placeholder="Buscar pokemon">
+            <button type="submit" class="btn btn-warning">Buscar</button>
+        </div>
+    </form>
+    <div th:if="${error}" class="alert alert-warning w-50 mt-4" role="alert">
+        <p th:text="${error}"></p>
+    </div>
+</div>
 </body>
 </html>

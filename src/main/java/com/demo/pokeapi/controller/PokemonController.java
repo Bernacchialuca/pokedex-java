@@ -27,7 +27,7 @@ public class PokemonController {
             model.addAttribute("pokemon", pokemon);
             return "pokemon";
         } catch (HttpClientErrorException.NotFound ex) {
-            model.addAttribute("error", "El Pokémon " + name + " no fue encontrado.");
+            model.addAttribute("error", "El Pokémon " + name + " no fue encontrado. 😖");
             return "error";
         }
     }

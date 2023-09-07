@@ -16,9 +16,10 @@ import java.util.stream.Collectors;
 public class PokemonServiceImpl implements PokemonService {
     @Override
     public Pokemon getPokemonByName(String name) {
+        String nameToLowerCase = name.toLowerCase();
         final String API_URL = "https://pokeapi.co/api/v2/pokemon/";
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(API_URL + name, Pokemon.class);
+        return restTemplate.getForObject(API_URL + nameToLowerCase, Pokemon.class);
     }
 
     @Override
