@@ -32,7 +32,7 @@ public class PokemonController {
         }
     }
 
-    @GetMapping("/pokemones")
+    @GetMapping({"/","/pokemones"})
     public String getPokemons(Model model) {
         List<Pokemon> pokemones = this.pokemonService.getPokemones();
         model.addAttribute("pokemones", pokemones);

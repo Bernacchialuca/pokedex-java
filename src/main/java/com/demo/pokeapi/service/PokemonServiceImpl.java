@@ -26,24 +26,17 @@ public class PokemonServiceImpl implements PokemonService {
         final String API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0";
         RestTemplate restTemplate = new RestTemplate();
 
-        ResponseEntity<PokemonListResponse> responseEntity = restTemplate.exchange(
-                API_URL,
-                HttpMethod.GET,
-                null,
-                PokemonListResponse.class
-        );
+        PokemonListResponse listResponse = restTemplate.getForObject(API_URL, PokemonListResponse.class);
 
-        if (responseEntity.getStatusCode() == HttpStatus.OK) {
-            PokemonListResponse listResponse = responseEntity.getBody();
-            if (listResponse != null && listResponse.getResults() != null) {
-                return listResponse.getResults().stream()
-                        .map(pokemon -> restTemplate.getForObject(pokemon.getUrl(), Pokemon.class))
-                        .collect(Collectors.toList());
-            }
+        if (listResponse != null && listResponse.getResults() != null) {
+            return listResponse.getResults().stream()
+                    .map(pokemon -> restTemplate.getForObject(pokemon.getUrl(), Pokemon.class))
+                    .collect(Collectors.toList());
         }
 
         return Collections.emptyList();
     }
+
 
 
 }
