@@ -1,0 +1,157 @@
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9d9d9d;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    width: max-content;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.pokemon-description {
+    font-size: 16px;
+    color: #666;
+}
+
+.details-fire,
+.details-grass,
+.details-poison,
+.details-flying,
+.details-water,
+.details-normal,
+.details-bug,
+.details-electric,
+.details-ground,
+.details-fairy,
+.details-fighting,
+.details-psychic,
+.details-rock,
+.details-steel,
+.details.ice,
+.details-ghost,
+.details.dragon,
+.details-dark {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdb4b3;
+}
+
+.details-fire {
+    background-color: #fdb4b3;
+}
+
+.details-grass {
+    background-color: #dbefc2;
+}
+
+.details-poison {
+    background-color: #e6c9f7;
+}
+
+.details-flying {
+    background-color: #c0aff0;
+}
+
+.details-water {
+    background-color: #bdd1ff;
+}
+
+.details-normal {
+    background-color: #d4d4c0;
+
+}
+
+.details-bug {
+    background-color: #A8B820;
+
+}
+
+.details-electric {
+    background-color: #fbdd65;
+
+}
+
+.details-ground {
+    background-color: #E0C068;
+
+}
+
+.details-fairy {
+    background-color: #fcbbfc;
+
+}
+
+.details-fighting {
+    background-color: #c77d72;
+
+}
+
+.details-psychic {
+    background-color: #ff9dc4;
+
+}
+
+.details-rock {
+    background-color: #baae7b;
+
+}
+
+.details-steel {
+    background-color: #b9b9be;
+
+}
+
+.details-ice {
+    background-color: #bce9ff;
+
+}
+
+.details-ghost {
+    background-color: #9292cd;
+
+}
+
+.details-dragon {
+    background-color: #8878ef;
+}
+
+.details-dark {
+    background-color: #806e61dd;
+
+}
+
+.pokemon-name-details {
+    font-size: 28px;
+    color: #000000;
+}
+
+.pokemon-abilities ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pokemon-types span {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.pokemon-abilities li {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #333;
+    margin-bottom: 5px;
+}
