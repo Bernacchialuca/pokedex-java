@@ -20,15 +20,14 @@ public class PokemonServiceImpl implements PokemonService {
 
         if (pokemon != null) {
             addDescriptionToPokemon(pokemon, nameToLowerCase, restTemplate);
-            addDescriptionToPokemon(pokemon,nameToLowerCase,restTemplate);
+            addAbilitiesToPokemon(pokemon,nameToLowerCase,restTemplate);
         }
 
         return pokemon;
     }
 
-    @Override
-    public List<Pokemon> getPokemones() {
-        final String API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0";
+    public List<Pokemon> getPokemones(int offset, int pageSize) {
+        final String API_URL = "https://pokeapi.co/api/v2/pokemon?limit=" + pageSize + "&offset=" + offset;
         RestTemplate restTemplate = new RestTemplate();
 
         PokemonListResponse listResponse = restTemplate.getForObject(API_URL, PokemonListResponse.class);
@@ -41,6 +40,16 @@ public class PokemonServiceImpl implements PokemonService {
 
         return Collections.emptyList();
     }
+
+    public int getTotalPokemonCount() {
+        final String API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10000";
+        RestTemplate restTemplate = new RestTemplate();
+
+        PokemonListResponse listResponse = restTemplate.getForObject(API_URL, PokemonListResponse.class);
+
+        return listResponse != null ? listResponse.getCount() : 0;
+    }
+
 
     private void addDescriptionToPokemon(Pokemon pokemon, String nameToLowerCase, RestTemplate restTemplate) {
         String speciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + nameToLowerCase;

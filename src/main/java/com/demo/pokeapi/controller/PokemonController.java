@@ -23,6 +23,10 @@ public class PokemonController {
 
     @GetMapping("/pokemon")
     public String getPokemon(@RequestParam(name = "name") String name, Model model) {
+        if (name == null || name.trim().isEmpty()) {
+            model.addAttribute("error", "You must enter a Pokémon name to search for.");
+            return "error";
+        }
         try {
             Pokemon pokemon = this.pokemonService.getPokemonByName(name);
             model.addAttribute("pokemon", pokemon);
@@ -33,10 +37,25 @@ public class PokemonController {
         }
     }
 
-    @GetMapping({"/", "/pokedex"})
-    public String getPokemons(Model model) {
-        List<Pokemon> pokemones = this.pokemonService.getPokemones();
+    @GetMapping("/pokedex")
+    public String getPokemons(@RequestParam(name = "page", defaultValue = "1") int page,
+                              @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+                              Model model) {
+        int offset = (page - 1) * pageSize;
+        List<Pokemon> pokemones = this.pokemonService.getPokemones(offset, pageSize);
         model.addAttribute("pokemones", pokemones);
+
+        int totalCount = this.pokemonService.getTotalPokemonCount();
+        int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+
+        int prevPage = (page > 1) ? (page - 1) : 1;
+        int nextPage = (page < totalPages) ? (page + 1) : totalPages;
+
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("prevPage", prevPage);
+        model.addAttribute("nextPage", nextPage);
+
         return "pokedex";
     }
 

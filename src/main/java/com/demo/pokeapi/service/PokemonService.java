@@ -8,5 +8,6 @@ public interface PokemonService {
 
     Pokemon getPokemonByName(String name);
 
-    List<Pokemon> getPokemones();
+    List<Pokemon> getPokemones(int offset, int pageSize);
+    int getTotalPokemonCount();
 }

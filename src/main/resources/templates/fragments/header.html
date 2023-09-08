@@ -4,11 +4,20 @@
             <img class="pokedex-logo" th:src="@{/image/Pokedex_logo.png}" alt="pokedex-logo">
         </a>
     </div>
-    <form th:method="get" th:action="@{/pokemon}">
-        <div class="form-buscar">
-            <label for="name"></label>
-            <input id="name" name="name" type="text" placeholder="Buscar pokemon">
-            <button type="submit" class="btn btn-warning">Buscar</button>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <form th:method="get" th:action="@{/pokemon}">
+            <div class="form-buscar">
+                <label for="name"></label>
+                <input id="name" name="name" type="text" placeholder="Buscar pokemon">
+                <button type="submit" class="btn btn-warning">Buscar</button>
+            </div>
+        </form>
+        <div class="pagination-container">
+            <div class="pagination-container">
+                <a class="button-pagination btn btn-warning" th:href="@{'/pokedex?page=' + ${prevPage}}" th:if="${currentPage > 1}">❮</a>
+                <span style="margin: 0 2px" th:text="${currentPage}"></span>
+                <a class="button-pagination btn btn-warning" th:href="@{'/pokedex?page=' + ${nextPage}}" th:if="${currentPage < totalPages}">❯</a>
+            </div>
+
         </div>
-    </form>
 </div>
