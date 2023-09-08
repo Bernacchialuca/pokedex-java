@@ -1,12 +1,12 @@
 <div th:fragment="infoPokemon" class="card h-100 pokemon-card">
     <div class="col-12 mt-5 text-center">
-        <a th:href="@{'/pokemon/ver-detalle/' + ${pokemon.name}}">
+        <a th:href="@{'/pokemon/details/' + ${pokemon.name}}">
             <img class="pokemon-image" th:src="${pokemon.sprites.other.dream_world.front_default}"
                  th:alt="${pokemon.name}">
         </a>
     </div>
     <div class="col-12 card-body">
-        <a class="pokemon-name-link" th:href="@{'/pokemon/ver-detalle/' + ${pokemon.name}}">
+        <a class="pokemon-name-link" th:href="@{'/pokemon/details/' + ${pokemon.name}}">
             <h2 class="pokemon-name" th:text="${pokemon.name}"></h2>
         </a>
         <div class="m-3">

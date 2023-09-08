@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="~{fragments/head :: head}"></div>
+<body>
+<div class="col-12 mt-5 text-center">
+    <div class="text-center m-5">
+        <a th:href="@{'/pokedex'}">
+            <img class="pokedex-logo" th:src="@{/image/Pokedex_logo.png}" alt="pokedex-logo">
+        </a>
+    </div>
+    <p th:text="'#' + ${pokemon.id}"></p>
+    <a th:href="@{'/pokemon/details/' + ${pokemon.name}}">
+        <img class="pokemon-image" th:src="${pokemon.sprites.other.dream_world.front_default}"
+             th:alt="${pokemon.name}">
+    </a>
+</div>
+<div class="col-12 card-body">
+    <a class="pokemon-name-link" th:href="@{'/pokemon/details/' + ${pokemon.name}}">
+        <h2 class="pokemon-name" th:text="${pokemon.name}"></h2>
+    </a>
+    <div class="m-3">
+            <span th:each="type : ${pokemon.types}">
+                <span th:class="${type.type.name}" th:text="${type.type.name}"></span>
+            </span>
+    </div>
+    <p class="pokemon-description" th:text="${pokemon.description}"></p>
+    <div class="pokemon-abilities">
+        <h3>Habilidades:</h3>
+        <ul>
+            <li th:each="ability : ${pokemon.abilities}" th:text="${ability.ability.name}"></li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

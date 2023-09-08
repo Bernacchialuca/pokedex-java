@@ -28,26 +28,26 @@ public class PokemonController {
             model.addAttribute("pokemon", pokemon);
             return "pokemon";
         } catch (HttpClientErrorException.NotFound ex) {
-            model.addAttribute("error", "El Pokémon " + name + " no fue encontrado. 😖");
+            model.addAttribute("error", "Pokemon " + name + " was not found. 😖");
             return "error";
         }
     }
 
-    @GetMapping({"/", "/pokemones"})
+    @GetMapping({"/", "/pokedex"})
     public String getPokemons(Model model) {
         List<Pokemon> pokemones = this.pokemonService.getPokemones();
         model.addAttribute("pokemones", pokemones);
-        return "pokemones";
+        return "pokedex";
     }
 
-    @GetMapping("/pokemon/ver-detalle/{name}")
+    @GetMapping("/pokemon/details/{name}")
     public String verDetallePokemon(@PathVariable(name = "name") String name, Model model) {
         try {
             Pokemon pokemon = this.pokemonService.getPokemonByName(name);
             model.addAttribute("pokemon", pokemon);
-            return "detalle-pokemon";
+            return "pokemon-details";
         } catch (HttpClientErrorException.NotFound ex) {
-            model.addAttribute("error", "El Pokémon " + name + " no fue encontrado. 😖");
+            model.addAttribute("error", "Pokemon " + name + " was not found. 😖");
             return "error";
         }
     }
